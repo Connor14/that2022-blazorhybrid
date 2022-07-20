@@ -19,13 +19,19 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Product>> GetProductsAsync(CancellationToken cancellationToken)
+    public async Task<ResultSet<Product>> GetProductsAsync([FromQuery] int startIndex, [FromQuery] int count, CancellationToken cancellationToken)
     {
         await using var context = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        var products = await context.Products.ToListAsync();
+        var products = await context.Products
+            .OrderBy(p => p.Id)
+            .Skip(startIndex)
+            .Take(count)
+            .ToListAsync(cancellationToken);
 
-        return products.Select(MapToProductContract).ToList();
+        var totalCount = await context.Products.CountAsync(cancellationToken);
+
+        return new ResultSet<Product>(products.Select(MapToProductContract).ToList(), totalCount);
     }
 
     [HttpGet("{id}")]

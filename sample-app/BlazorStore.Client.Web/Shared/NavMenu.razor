@@ -1,5 +1,31 @@
-﻿<MudNavMenu>
-    <MudNavLink Match="NavLinkMatch.All" Href="/">Index</MudNavLink>
-    <MudNavLink Href="/counter">Counter</MudNavLink>
-    <MudNavLink Href="/fetchdata">FetchData</MudNavLink>
+﻿@using BlazorStore.Client.Web.Services
+@inject CartStateContainer CartState
+
+<MudNavMenu>
+    <MudNavLink Match="NavLinkMatch.All" Href="/">
+        <MudText>Home</MudText>
+    </MudNavLink>
+    <MudNavLink Href="/products">
+        <MudText>Products</MudText>    
+    </MudNavLink>
+    <MudDivider />
+    <MudNavLink Href="/cart" Class="d-flex flex-direction-column">
+        <div class="d-flex align-center">
+            <MudText>Cart</MudText>
+            <MudSpacer />
+            <MudChip Size="Size.Small" Color="Color.Secondary">@CartState.Entries.Sum(e => e.Quantity)</MudChip>
+        </div>
+    </MudNavLink>
 </MudNavMenu>
+
+@code {
+    protected override void OnInitialized()
+    {
+        CartState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        CartState.OnChange -= StateHasChanged;
+    }
+}

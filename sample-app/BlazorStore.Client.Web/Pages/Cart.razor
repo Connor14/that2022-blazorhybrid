@@ -1,0 +1,33 @@
+﻿@page "/cart"
+@using BlazorStore.Client.Web.Services
+@inject CartStateContainer CartState
+
+<div class="ma-4 pa-4">
+    <MudText Typo="Typo.h3">Cart</MudText>
+
+    @if (CartState.Entries.Any())
+    {
+        <MudTable Items="CartState.Entries">
+            <HeaderContent>
+                <MudTh>Product</MudTh>
+                <MudTh>Unit Price</MudTh>
+                <MudTh>Quantity</MudTh>
+                <MudTh>Total Price</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.Product.Name</MudTd>
+                <MudTd>@context.Product.UnitPrice.ToString("C")</MudTd>
+                <MudTd>@context.Quantity</MudTd>
+                <MudTd>@context.TotalPrice.ToString("C")</MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+    else
+    {
+        <MudText>No items added to cart!</MudText>
+    }
+</div>
+
+@code {
+
+}

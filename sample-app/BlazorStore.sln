@@ -5,9 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Client.Web", "BlazorStore.Client.Web\BlazorStore.Client.Web.csproj", "{11FF390B-3BFA-4319-8B42-79E8FB59555A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorStore.Api", "BlazorStore.Api\BlazorStore.Api.csproj", "{0EE39712-A266-4AD7-ACDC-0A22A5DD0A94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Api", "BlazorStore.Api\BlazorStore.Api.csproj", "{0EE39712-A266-4AD7-ACDC-0A22A5DD0A94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorStore.Api.Contracts", "BlazorStore.Api.Contracts\BlazorStore.Api.Contracts.csproj", "{C5062537-795B-4F78-87F5-8BEF5F52BB54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Api.Contracts", "BlazorStore.Api.Contracts\BlazorStore.Api.Contracts.csproj", "{C5062537-795B-4F78-87F5-8BEF5F52BB54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

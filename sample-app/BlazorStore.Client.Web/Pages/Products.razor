@@ -31,11 +31,11 @@
 </div>
 
 @code {
-    private List<Api.Contracts.Product>? _products;
+    private List<Api.Contracts.ProductContract>? _products;
 
     protected override async Task OnInitializedAsync()
     {
-        var result = await HttpClient.GetFromJsonAsync<ResultSet<Api.Contracts.Product>>("Products?startIndex=0&count=30");
+        var result = await HttpClient.GetFromJsonAsync<ResultSet<Api.Contracts.ProductContract>>("Products?startIndex=0&count=30");
 
         if (result == null)
             return;
@@ -43,7 +43,7 @@
         _products = result.Items;
     }
 
-    private void OnRowClick(Api.Contracts.Product product)
+    private void OnRowClick(Api.Contracts.ProductContract product)
     {
         NavigationManager.NavigateTo($"/products/{product.Id}");
     }

@@ -1,6 +1,6 @@
-﻿namespace BlazorStore.Api.Data.Models;
+﻿namespace BlazorStore.Api.Contracts;
 
-public class Product
+public class ProductContract
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;

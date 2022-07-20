@@ -23,11 +23,11 @@ public class CartStateContainer
 
 public class CartEntry
 {
-    public Product Product { get; }
+    public ProductContract Product { get; }
     public int Quantity { get; }
     public decimal TotalPrice => Product.UnitPrice * Quantity;
 
-    public CartEntry(int quantity, Product product)
+    public CartEntry(int quantity, ProductContract product)
     {
         Quantity = quantity;
         Product = product;

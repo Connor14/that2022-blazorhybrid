@@ -19,7 +19,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ResultSet<Product>> GetProductsAsync([FromQuery] int startIndex, [FromQuery] int count, CancellationToken cancellationToken)
+    public async Task<ResultSet<ProductContract>> GetProductsAsync([FromQuery] int startIndex, [FromQuery] int count, CancellationToken cancellationToken)
     {
         await using var context = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
@@ -31,11 +31,11 @@ public class ProductsController : ControllerBase
 
         var totalCount = await context.Products.CountAsync(cancellationToken);
 
-        return new ResultSet<Product>(products.Select(MapToProductContract).ToList(), totalCount);
+        return new ResultSet<ProductContract>(products.Select(MapToProductContract).ToList(), totalCount);
     }
 
     [HttpGet("{id}")]
-    public async Task<Product?> GetProductOrDefaultAsync(int id, CancellationToken cancellationToken)
+    public async Task<ProductContract?> GetProductOrDefaultAsync(int id, CancellationToken cancellationToken)
     {
         await using var context = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
@@ -47,8 +47,8 @@ public class ProductsController : ControllerBase
         return MapToProductContract(product);
     }
 
-    private Product MapToProductContract(Data.Models.Product product)
-        => new Product()
+    private ProductContract MapToProductContract(Product product)
+        => new ProductContract()
         {
             Id = product.Id,
             Name = product.Name,

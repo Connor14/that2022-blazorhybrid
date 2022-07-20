@@ -37,13 +37,13 @@
     [Parameter]
     public int Id { get; set; }
 
-    private Api.Contracts.Product? _product;
+    private Api.Contracts.ProductContract? _product;
 
     private int _quantity = 1;
 
     protected override async Task OnInitializedAsync()
     {
-        _product = await HttpClient.GetFromJsonAsync<Api.Contracts.Product>($"/Products/{Id}");
+        _product = await HttpClient.GetFromJsonAsync<Api.Contracts.ProductContract>($"/Products/{Id}");
     }
 
     private void AddToCart()

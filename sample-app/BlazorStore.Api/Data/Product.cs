@@ -1,4 +1,4 @@
-﻿namespace BlazorStore.Api.Contracts;
+﻿namespace BlazorStore.Api.Data;
 
 public class Product
 {

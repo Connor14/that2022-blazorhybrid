@@ -1,0 +1,52 @@
+﻿@using BlazorStore.Api.Contracts
+@page "/products/{id:int}"
+@inject HttpClient HttpClient
+@inject CartStateContainer CartState
+
+<PageTitle>@(_product?.Name ?? "Product")</PageTitle>
+
+<MudPaper Class="flex-grow-1 ma-4 pa-4" Elevation="1">
+    @if (_product == null)
+    {
+        <MudText>Loading...</MudText>
+    }
+    else
+    {
+        <MudGrid>
+            <MudItem xs="6">
+                <MudImage Src="@_product.ImageUrl" Style="width: 100%"></MudImage>
+            </MudItem>
+            <MudItem xs="6">
+                <MudStack>
+                    <MudText Typo="Typo.h6">@_product.Name</MudText>
+                    <MudText>@_product.UnitPrice.ToString("C")</MudText>
+                    <MudText Typo="Typo.caption">@_product.Description</MudText>
+
+                    <MudStack Row="true">
+                        <MudNumericField Label="Quantity" Variant="Variant.Text" Min="1" @bind-Value="_quantity" />
+                        <MudButton Color="Color.Secondary" Variant="Variant.Filled" OnClick="AddToCart">Add to Cart</MudButton>
+                    </MudStack>
+                </MudStack>
+            </MudItem>
+        </MudGrid>
+    }
+</MudPaper>
+
+@code {    
+    private Api.Contracts.ProductContract? _product;
+    private int _quantity = 1;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _product = await HttpClient.GetFromJsonAsync<Api.Contracts.ProductContract>($"/Products/{Id}");
+    }
+
+    private void AddToCart()
+    {
+        if (_product != null)
+            CartState.Entries.Add(new CartEntry(_quantity, _product));
+    }
+}

@@ -63,7 +63,7 @@ The `hybrid-app-part1` solution shows how I transformed the Blazor WebAssembly a
 * Add Android network security config for cleartext HTTP to Platforms/Android/Resources/xml
 * Add network security config to AndroidManifest.xml
 
-## 8. Finishing up - BlazorSore.Api
+## 8. Finishing up - BlazorStore.Api
 
 * Update launch settings to bind to `0.0.0.0`
 * Update `Program.cs` to remove HTTPS redirection

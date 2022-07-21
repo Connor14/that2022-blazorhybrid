@@ -1,4 +1,5 @@
-﻿using BlazorStore.Client.Shared.Services;
+﻿using BlazorStore.Client.Maui.Services;
+using BlazorStore.Client.Shared.Services;
 using Microsoft.AspNetCore.Components.WebView.Maui;
 using MudBlazor.Services;
 
@@ -23,6 +24,7 @@ namespace BlazorStore.Client.Maui
 
             builder.Services.AddMudServices();
             builder.Services.AddSingleton<CartStateContainer>();
+            builder.Services.AddSingleton<IStringService, StringService>();
 
 #if ANDROID
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://10.0.2.2:5278") });

@@ -1,8 +1,10 @@
 ﻿@page "/"
+@inject IStringService StringService
 
 <PageTitle>Home</PageTitle>
 
 <MudPaper Class="flex-grow-1 ma-4 pa-4" Elevation="1">
     <MudText Typo="Typo.h3">Hello, world!</MudText>
     <MudText>I'm a sample application edited in a shared project!</MudText>
+    <MudText>My string is @(StringService.GetString())!</MudText>
 </MudPaper>

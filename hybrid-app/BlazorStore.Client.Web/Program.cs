@@ -1,5 +1,5 @@
 using BlazorStore.Client.Web;
-using BlazorStore.Client.Web.Services;
+using BlazorStore.Client.Shared.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;

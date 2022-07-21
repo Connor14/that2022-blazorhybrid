@@ -23,7 +23,14 @@ namespace BlazorStore.Client.Maui
 
             builder.Services.AddMudServices();
             builder.Services.AddSingleton<CartStateContainer>();
+
+#if ANDROID
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://10.0.2.2:5278") });
+#elif WINDOWS
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7278") });
+#else
+            throw new NotImplementedException("Please set up your HttpClient BaseAddress for iOS or MacOS");
+#endif
 
             return builder.Build();
         }

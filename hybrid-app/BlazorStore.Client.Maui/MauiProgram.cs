@@ -1,5 +1,6 @@
-﻿using BlazorStore.Client.Maui.Data;
+﻿using BlazorStore.Client.Shared.Services;
 using Microsoft.AspNetCore.Components.WebView.Maui;
+using MudBlazor.Services;
 
 namespace BlazorStore.Client.Maui
 {
@@ -17,10 +18,12 @@ namespace BlazorStore.Client.Maui
 
             builder.Services.AddMauiBlazorWebView();
 #if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 
-            builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddMudServices();
+            builder.Services.AddSingleton<CartStateContainer>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7278") });
 
             return builder.Build();
         }

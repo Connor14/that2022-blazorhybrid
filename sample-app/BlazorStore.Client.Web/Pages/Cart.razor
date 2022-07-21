@@ -1,6 +1,8 @@
-﻿@page "/cart"
-@using BlazorStore.Client.Web.Services
+﻿@using BlazorStore.Client.Web.Services
+@page "/cart"
 @inject CartStateContainer CartState
+
+<PageTitle>Cart</PageTitle>
 
 <div class="ma-4 pa-4">
     <MudText Typo="Typo.h3">Cart</MudText>
@@ -27,7 +29,3 @@
         <MudText>No items added to cart!</MudText>
     }
 </div>
-
-@code {
-
-}

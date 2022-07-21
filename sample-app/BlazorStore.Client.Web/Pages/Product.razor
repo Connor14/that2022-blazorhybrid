@@ -33,13 +33,12 @@
     }
 </MudPaper>
 
-@code {
+@code {    
+    private Api.Contracts.ProductContract? _product;
+    private int _quantity = 1;
+
     [Parameter]
     public int Id { get; set; }
-
-    private Api.Contracts.ProductContract? _product;
-
-    private int _quantity = 1;
 
     protected override async Task OnInitializedAsync()
     {

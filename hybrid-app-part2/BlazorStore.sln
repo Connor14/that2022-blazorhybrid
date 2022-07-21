@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Api.Contracts",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Client.Maui", "BlazorStore.Client.Maui\BlazorStore.Client.Maui.csproj", "{601AF16C-A61D-49CE-A81F-1ED9E686BB06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorStore.Client.Shared", "BlazorStore.Client.Shared\BlazorStore.Client.Shared.csproj", "{C532702B-4C50-4F11-81BA-190EDDE73653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStore.Client.Shared", "BlazorStore.Client.Shared\BlazorStore.Client.Shared.csproj", "{C532702B-4C50-4F11-81BA-190EDDE73653}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

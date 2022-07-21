@@ -18,7 +18,7 @@ This solution contains the Blazor WebAssembly app from above with a Blazor Hybri
 
 A .NET MAUI Blazor App (utilizing the official template) was added to the solution. Then the common components of the Blazor WebAssembly app were migrated into a shared Razer Class Library.
 
-More details on the process can be found in [Creating a Hybrid App](./CREATING_A_HYBRID_APP)
+More details on the process can be found in [Creating a Hybrid App](./CREATING_A_HYBRID_APP.md)
 
 ## hybrid-app-part2
 
